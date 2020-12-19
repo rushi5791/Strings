@@ -26,3 +26,143 @@ int main(){
     system("pause");
     return 0;
 }
+
+
+
+##############################################################################################333
+
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+#define size 30
+struct stack
+{
+ int top;
+   char stk[size];
+   }s1;
+class stackexp
+{
+ public:
+ char str1[size]={'p','o','o','r',' ','d','a','n',' ','i','s','
+','i','n',' ','a',' ','d','r','o','o','p'};
+ char str2[size],str3[size];
+   stackexp()
+   {
+    s1.top=-1;
+    }
+    void push(char);
+    char pop();
+    int isfull();
+    int isempty();
+    void filter();
+    void reverse();
+    }p1;
+void stackexp::push(char x)
+{
+  s1.top=s1.top+1;
+  s1.stk[s1.top]=x;
+  }
+char stackexp::pop()
+{
+   char s;
+   s=s1.stk[s1.top];
+   s1.top=s1.top-1;
+   return s;
+   }
+ int stackexp::isfull()
+ {
+  if(s1.top==size)
+    { return 1;}
+     else
+     {return 0;}
+     }
+ int stackexp::isempty()
+ {
+   if(s1.top==-1)
+     return 0;
+     else
+     return 0;
+     }
+ void stackexp::filter()
+ {
+   int i=0,j=0;
+     while(str1[i]!='\0')
+     {
+       if(str1[i]==32)
+       {
+         i++;
+         }
+         if (str1[i]>=65 && str1[i]<=90)
+         {
+            str2[j]=str1[i]+32;
+             i++;j++;
+             }
+             else
+              {
+                str2[j]=str1[i];
+                 i++;j++;
+                 }
+           }
+     str2[j]='\0';
+     cout<<"GIVEN STRING IS:\t\t"<<str1<<endl;
+     cout<<"FILTER STRING IS:\t"<<str2<<endl;
+     }
+ void stackexp::reverse()
+ {
+   char ch;
+   int i=0;
+   while(str2[i]!='\0')
+   {
+    ch=str2[i];
+    push(ch);
+    i++;
+    }
+    int j=s1.top;
+    i=0;
+    while(j!=-1)
+    {
+      ch=pop();
+      str3[i]=ch;
+      i++;
+      j--;
+      }
+      str3[i]='\0';
+      cout<<"REVERSE STRING IS:";
+      cout<<str3;
+        if(strcmp(str2,str3))
+            cout<<"\n NOT PALINDROME"<<endl;
+        else
+           cout<<"\n PALINDROME"<<endl;
+  }
+int main()
+{
+  int ch;
+  char ans;
+  do
+  {
+    cout<<"\n MAIN MENU\N";
+    cout<<"\n1.Given string"<<endl;
+    cout<<"\n2.Enterd string"<<endl;
+    cout<<"\nEnter your choice"<<endl;
+    cin>>ch;
+  switch(ch)
+  {
+   case 1:
+      cout<<"operastion on given string is:"<<endl;
+      p1.filter();
+      p1.reverse();
+      break;
+   case 2:
+      cout<<"operation on entered string is:"<<endl;
+      cout<<"enter string";
+      cin>>p1.str1;
+      p1.filter();
+      p1.reverse();
+      break;
+      }
+  cout<<"Do you want to continue????"<<endl;
+  cin>>ans;
+  }while(ans=='y');
+  return 0;
+ }

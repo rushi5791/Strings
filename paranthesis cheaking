@@ -1,0 +1,158 @@
+// CPP program to check for balanced brackets. 
+#include <bits/stdc++.h> 
+using namespace std; 
+
+// function to check if brackets are balanced 
+bool areBracketsBalanced(string expr) 
+{ 
+	stack<char> s; 
+	char x; 
+
+	// Traversing the Expression 
+	for (int i = 0; i < expr.length(); i++) 
+	{ 
+		if (expr[i] == '(' || expr[i] == '['
+			|| expr[i] == '{') 
+		{ 
+			// Push the element in the stack 
+			s.push(expr[i]); 
+			continue; 
+		} 
+
+		// IF current current character is not opening 
+		// bracket, then it must be closing. So stack 
+		// cannot be empty at this point. 
+		if (s.empty()) 
+			return false; 
+
+		switch (expr[i]) { 
+		case ')': 
+			
+			// Store the top element in a 
+			x = s.top(); 
+			s.pop(); 
+			if (x == '{' || x == '[') 
+				return false; 
+			break; 
+
+		case '}': 
+
+			// Store the top element in b 
+			x = s.top(); 
+			s.pop(); 
+			if (x == '(' || x == '[') 
+				return false; 
+			break; 
+
+		case ']': 
+
+			// Store the top element in c 
+			x = s.top(); 
+			s.pop(); 
+			if (x == '(' || x == '{') 
+				return false; 
+			break; 
+		} 
+	} 
+
+	// Check Empty Stack 
+	return (s.empty()); 
+} 
+
+// Driver code 
+int main() 
+{ 
+	string expr = "{()}[]"; 
+
+	// Function call 
+	if (areBracketsBalanced(expr)) 
+		cout << "Balanced"; 
+	else
+		cout << "Not Balanced"; 
+	return 0; 
+} 
+
+
+################################################################################
+
+
+
+#include<iostream>
+using namespace std;
+#define size 30
+int main()
+{
+char stk[size],exp[size],ans;
+int top,i;
+do
+{
+top=-1;
+cout<<"Enter the expression\t";
+cin>>exp;
+for(i=0;exp[i]!='\0';i++)
+{
+if(exp[i]=='('||exp[i]=='(')
+{
+top++;
+stk[top]=exp[i];
+}
+else if(exp[i]==')')
+{
+if(stk[top]=='(')
+{
+top--;
+}
+else
+{
+cout<<"given expression is not well parenthesized"<<endl;
+ return 0;
+}
+}
+else if(exp[i]==']')
+{
+if(stk[top]=='[')
+{
+top--;
+}
+else
+{
+cout<<"given expression is not well parenthesized"<<endl;
+ return 0;
+}
+}
+else if(exp[i]=='{')
+{
+if(stk[top]=='}')
+{
+top--;
+}
+else
+{
+cout<<"given expression is not well parenthesized"<<endl;
+ return 0;
+}
+}
+}
+if(top==-1)
+{
+cout<<"given expression is well parenthesized"<<endl;
+}
+else
+{
+cout<<"given expression is not well parenthesized"<<endl;
+}
+cout<<"Do you want to continue??\t";
+cin>>ans;
+}
+while(ans=='y');
+return 0;
+}
+
+
+
+
+#######################################################################################
+
+
+
+

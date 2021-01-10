@@ -3,7 +3,6 @@ Below is the C++ implementation of the above idea. In the below implementation, 
 
 
 
-
 // C++ program to print all possible sentences from a list of word list
 #include <iostream>
 #include <string>

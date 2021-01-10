@@ -12,7 +12,7 @@ An Efficient Solution can solve this problem in O(n) time. The idea is to create
       
       
       
-      // C++ program to check if two strings are isomorphic 
+ // C++ program to check if two strings are isomorphic 
 #include<bits/stdc++.h> 
 using namespace std; 
 #define MAX_CHARS 256 
